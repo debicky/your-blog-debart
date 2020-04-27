@@ -1,0 +1,21 @@
+
+<h1 class="font-weight-bold text-right mt-3">There are most viewed!<hr class="border border-info rounded m-0"></h1>
+
+
+<div class="row justify-content-center">
+
+
+<% @popular_posts.each do |post| %>
+<div class="col-lg-6 card-group">
+
+<%= render 'posts/main/card', post: post %>
+
+
+</div>
+<% end %>
+</div>
+
+
+
+
+

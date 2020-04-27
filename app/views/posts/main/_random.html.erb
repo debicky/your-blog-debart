@@ -1,0 +1,16 @@
+
+<h1 class="font-weight-bold  mt-3">Check this random post!<hr class="border border-info rounded m-0"></h1>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-12">
+<% @random_post.each do |post| %>
+
+<%= render 'posts/main/card', post: post %>
+
+
+<% end %>
+  </div>
+  </div>
+
+

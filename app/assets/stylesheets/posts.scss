@@ -1,0 +1,63 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  background-image:url('bg.jpg')
+}
+
+a.display-2 {
+  font-family: 'Merriweather', serif;
+  color: black !important;
+  text-decoration: none !important;
+  
+}
+
+a.cardtitle {
+  font-family: 'Merriweather', serif;
+  color: black !important;
+  text-decoration: none !important;
+}
+a.cardtitle:hover {
+  color: rgb(22, 22, 22) !important;
+  text-decoration: underline !important;
+  text-decoration-color: #17a2b8 !important;
+}
+
+.card-img-top {
+  height: 15vw;
+  object-fit: cover;
+} 
+
+a.display-2 {
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 60px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 100px;
+  }
+
+
+}
+
+
+ h1.display-2 {
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 50px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 80px;
+  }
+
+
+}
+
+

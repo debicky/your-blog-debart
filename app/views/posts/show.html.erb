@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="display-2 text-center font-italic my-1">
+        <%= @post.title %>
+      </h1>
+      <small>
+        Written by <%= @post.user.username %> at <%= @post.created_at.strftime("%B %e, %Y") %>.
+      <% if current_user && (current_user.admin || current_user == @post.user) %>
+         <%= link_to "Delete post", @post, method: :delete, class: "btn btn-outline-danger btn-sm mb-1", data: { confirm: 'Are you sure?' } %>
+       | <%= link_to "Edit post", edit_post_path(@post), class: "btn btn-outline-warning btn-sm mb-1" %>
+
+      <% end %>
+        <hr class="border border-dark rounded mb-2 mt-0">
+      </small>
+  </div>
+
+
+  <div class="col-md-8">
+      <%= image_tag(@post.thumbnail, class: "img-fluid rounded mb-3") %>
+      <%= @post.body %>
+      <hr>
+      <div class="d-flex justify-content-center">
+        <%= render 'comments/form', commentable: @post, local: Comment.new %>
+      </div>
+
+
+
+      <div class="container ">
+        <div id="comment-pane">
+          <% @comments.each do |comment| %>
+            <%= render comment %>
+          <% end %>
+        </div>  
+      </div>
+  </div>
+
+
+  <div class="col-md-4 " >
+    <div class="card ">
+      <div class="card-body m-0">
+        <h4 class="font-weight-bold text-black text-center">Latest commented posts!<hr class="border border-info rounded m-0"></h4>
+      </div>
+    </div>
+
+    <% @latest_commented.each do |post| %>
+      <div class="card-group m-0" >
+        <%= render 'posts/main/card', post: post %>
+      </div>
+    <% end %>
+  </div>
+  
+</div>
+
+

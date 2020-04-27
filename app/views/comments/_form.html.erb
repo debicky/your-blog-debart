@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="comment-form btn btn-sm">
+    <%= form_with model: [commentable, local] do |f| %>
+      <div class="form-group">
+        <%= f.rich_text_area :body, placeholder: "Would you like to comment?", class: "font-italic text-center border-info reply-form-#{commentable.id}", id: f.object.object_id, method: :patch %>
+<% if current_user && (current_user || current_user.admin ) %>
+        <%= f.submit "Add comment!", class: "btn btn-block btn-info btn-sm mt-2" %> 
+<% else %>
+<%= link_to "Login to post a comment!", new_user_session_path, class:"btn btn-block btn-info btn-sm my-2"  %>
+<% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+

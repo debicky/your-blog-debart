@@ -1,0 +1,56 @@
+<div class="card border-dark">
+  <div class="row no-gutters">
+    <div class="col-3 d-none d-lg-block  ">
+            <% if comment.user.avatar.attached? %>
+        <%= image_tag(comment.user.avatar, class: "card-img ") %>
+      <% else %>
+        <%= image_tag("/profile.png", class: 'card-img') %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <div class="card-body">
+        <p class="card-title "><strong><%= comment.user.username %></strong> commented <%= time_ago_in_words(comment.created_at) %></p>
+              <div class="card-text">
+        <%= comment.body %>
+      </div>
+             <% if current_user && (current_user == comment.user || current_user.admin ) %>
+              <%= link_to "Delete", comment, class: "btn btn-danger", method: :delete, remote: true %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-9">
+<% unless comment.reply? %>
+<div class="pos-f-t mb-3">
+    <button class="btn btn-block btn-info btn-sm mt-2" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent-<%= comment.id %>" aria-controls="navbarToggleExternalContent-<%= comment.id %>" aria-expanded="false" aria-label="Toggle navigation">
+      See answears! 
+    </button>
+  <div class="collapse" id="navbarToggleExternalContent-<%= comment.id %>" >
+  <div class="d-flex justify-content-center mt-2">
+      <div id="reply-<%= comment.id %>">
+        <% comment.comments.each do |comment| %>
+          <%= render comment %>
+        <% end %>
+      </div>
+  </div>
+  </div>
+</div>
+    <% if current_user && (current_user || current_user.admin ) %>
+
+
+      <div class="d-flex justify-content-center mt-2">
+          <%= render 'comments/form', commentable: comment, local: Comment.new %>
+      </div>
+
+
+
+    <% end %>
+<% end %>
+</div>
+</div>
+
+

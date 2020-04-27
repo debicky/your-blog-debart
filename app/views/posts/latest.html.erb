@@ -1,0 +1,25 @@
+<h1 class="font-weight-bold mt-3">Keep reading!<hr class="border border-info rounded m-0"></h1>
+<div class="row justify-content-center">
+
+<div class="digg_pagination mt-3 btn btn-lg ">
+    <%= will_paginate @posts %>
+</div>
+
+<% @posts.each do |post| %>
+<div class="col-lg-12 card-group">
+
+<%= render 'posts/main/card', post: post %>
+
+
+</div>
+
+<% end %>
+
+<div class="digg_pagination mt-3 btn btn-lg ">
+    <%= will_paginate @posts %>
+</div>
+
+
+</div>
+
+

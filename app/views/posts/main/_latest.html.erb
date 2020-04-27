@@ -1,0 +1,20 @@
+
+<h1 class="font-weight-bold mt-3">The latest posts!<hr class="border border-info rounded m-0"></h1>
+
+<div class="row justify-content-center">
+
+
+<% @new_posts.each do |post| %>
+<div class="col-lg-6 card-group">
+
+
+<%= render 'posts/main/card', post: post %>
+
+
+</div>
+<% end %>
+
+<%= link_to "And #{@posts_all.count - 4} more of our awesome articles! >>", latest_posts_path, class: "btn btn-outline-info btn-lg mt-3" %>
+
+
+</div>
