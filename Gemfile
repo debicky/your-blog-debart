@@ -11,6 +11,7 @@ gem 'will_paginate'
 gem 'friendly_id'
 gem 'dotenv-rails'
 gem 'pg'
+gem "aws-sdk-s3", require: false
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
