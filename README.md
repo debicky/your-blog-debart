@@ -1,24 +1,21 @@
-# Another poor blog app.
+# Another boring blog app :).
 
 ## Basic blog app.
 
-Bootstraped-blog application with nested comments.
+Bootstraped-blog application with nested comments. **Comments are added without refreshing thanks to AJAX.**
 
 
-### There are mainly 2 types of users:
+### There are 3 types of users:
 
-1. Unregistered guest/registered user -  users can order products They can add maximum 5 items at once. Choose size of them.
-  At shopping cart there is subtotal and total price of the order. 
-  They still can update amount and size of the product. 
-  **Order item operations are done without page refreshing thanks to AJAX.**
-  Cart view is rendered after placing first item to it.
-  **After placing an order email with quantity and total cost of products is send to user.**
-  
-2. Administrator - can CRUD products.
-  - *New product*, - name, description, image, price and category of product.
-  - *New sizes*, ability to add new sizes for products. 
-  - *New categories*, ability to add new cetegories for products. 
-  - *Orders*, **administrator of the shop can check orders. Their value, pay type and customer details.**
+1. Unregistered guest - Can visit articles, see comments and nested comments. To leave comment or create an article has to login.
+
+2. Registered user - users can create articles and comments.
+  Only articles and comments witch belongs to user can be deleted by them. 
+   
+3. Administrator - can CRUD articles and comments.
+  - *New article*, - name, body with rich_text, image.
+  - *Deleting comments*, - administrator is allowed to delete everything.
+
 
 ### Specs
 
@@ -51,11 +48,8 @@ Bootstraped-blog application with nested comments.
    
 7. gem 'dotenv-rails'
    > to keep personal/secret data safe during development.
-   
-8. gem "figaro"
-   > almost the same as dotenv-rails. Keeping my sensitive information and allows securely configure Rails applications 
-   
-9. gem "aws-sdk-s3"
+
+8. gem "aws-sdk-s3"
    > needed to upload files to Amazon S3 bucket in production.
    
 
